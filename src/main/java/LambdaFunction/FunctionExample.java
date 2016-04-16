@@ -9,7 +9,6 @@ public class FunctionExample {
         A(){}
         A(int x){}
         A(int x, int y){}
-
     }
 
     interface MySup<T> {
