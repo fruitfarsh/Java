@@ -1,14 +1,21 @@
 package LambdaFunction;
 
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.security.PrivilegedAction;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.*;
+import java.util.concurrent.Callable;
 
 public class FunctionExample {
     static class A {
-        A(){}
-        A(int x){}
-        A(int x, int y){}
+        A() {
+        }
+
+        A(int x) {
+        }
+
+        A(int x, int y) {
+        }
     }
 
     interface MySup<T> {
@@ -17,12 +24,12 @@ public class FunctionExample {
 
     public static void example01() {
         Supplier<A> s = A::new;
-        System.out.println("s:"+s);
+        System.out.println("s:" + s);
         MySup<A> mySup = A::new;
-        System.out.println("mySup:"+mySup);
+        System.out.println("mySup:" + mySup);
 
         A a1 = mySup.createdMyIncredibleObject();
-        System.out.println("a1:"+a1);
+        System.out.println("a1:" + a1);
 
         Function<Integer, A> f1 = A::new;
 
@@ -30,14 +37,38 @@ public class FunctionExample {
         BiFunction<Integer, Integer, A> f2 = A::new;
     }
 
+    public static void example02() throws Exception {
+        Callable<Integer> callable = () -> 42;
+        System.out.println(callable.call());
+
+        PrivilegedAction<Integer> privilegedAction = () -> 43;
+        launch(callable);
+        //launch(privilegedAction); //error
+        launch(privilegedAction::run);
+        launch(() -> 44);
+
+        List<String> list = new ArrayList<>();
+        Predicate<String> predicate1 = (String s) -> list.add(s);
+        Predicate<String> predicate2 = list::add;
+
+        Consumer<String> consumer = list::add;
+    }
+
+    static void launch(Callable<?> callable) {
+        try {
+            System.out.println(callable.call());
+        } catch (Exception r) {
+            r.printStackTrace();
+        }
+    }
+
     @FunctionalInterface
-    interface B{
+    interface B {
         void m();
     }
 
     @FunctionalInterface
-    interface C extends B{
+    interface C extends B {
         //void m2(); //Уже не функциональный интерфейс, т.к. ф.и. должен иметь только 1 абстрактный метод
     }
-
 }

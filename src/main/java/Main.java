@@ -9,7 +9,7 @@ import LambdaFunction.FunctionExample;
 import Lambda.Lambda;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Hello java 8");
 
         Lambda.example00();
@@ -19,5 +19,6 @@ public class Main {
         Lambda.example04();
         Lambda.example05();
         FunctionExample.example01();
+        FunctionExample.example02();
     }
 }
