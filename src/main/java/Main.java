@@ -7,6 +7,7 @@
 
 import LambdaFunction.FunctionExample;
 import Lambda.Lambda;
+import Streams.StreamsExamples;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -20,5 +21,6 @@ public class Main {
         Lambda.example05();
         FunctionExample.example01();
         FunctionExample.example02();
+        StreamsExamples.example01();
     }
 }
