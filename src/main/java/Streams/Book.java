@@ -3,112 +3,75 @@ package Streams;
 import java.time.Year;
 import java.util.Arrays;
 import java.util.List;
-
 public class Book {
+
+    public enum Topic {
+        PROGRAMMING, FICTION, SHORT, HUMOR
+    }
+
+    public static List<Book> library;
+
+
+    static void createLibrary() {
+        Book b1 = new Book("Sherlock Holmes", new int[] { 256 }, 25.5,
+                Topic.SHORT, Arrays.asList("Arthur Conan Doyle"), Year.of(1920));
+        Book b2 = new Book("Tom Sawyer", new int[] { 300 }, 20.5, Topic.FICTION, Arrays.asList("Mark Twain"), Year.of(1930));
+        Book b3 = new Book("War and Peace", new int[] { 500, 450, 300, 600 },
+                50.0, Topic.FICTION, Arrays.asList("Lev Tolstoy"), Year.of(1900));
+        Book b4 = new Book("Java8 basics", new int[] { 100 }, 15.0,
+                Topic.PROGRAMMING, Arrays.asList("Smith","Johnes","Peters"), Year.of(2014));
+        Book b5 = new Book("12 chairs", new int[] { 230 }, 18.0,
+                Topic.HUMOR, Arrays.asList("Ilf","Petrov"), Year.of(2014));
+
+        library = Arrays.asList(b1, b2, b3, b4, b5);
+    }
+
+    static {
+        createLibrary();
+    }
+
+
+
     String title;
-
-    List<String> autor;
-
     int[] pageCounts;
     double height;
-    Topic topic;
+    Book.Topic topic;
+    List<String> authors;
     Year year;
-    public static List<Book> library = createLibrary();
 
-
-    static List<Book> createLibrary() {
-        Book book1 = new Book("Sherlock", "Doel",new int[] {200}, 25.3, Topic.COMEDIA, Year.of(1985));
-        Book book2 = new Book("War and peace", "Tolstoy", new int[]{300, 400, 500}, 55.9, Topic.ROMAN, Year.of(1872));
-        Book book3 = new Book("Tom Soyer", "Pushkin", new int[]{155}, 32.1, Topic.FANTASTIC, Year.of(1864));
-
-        return Arrays.asList(book1, book2, book3);
-    }
-
-    public Book(String title, int[] pageCounts, double height, Year year) {
-        this.title = title;
-        this.pageCounts = pageCounts;
-        this.height = height;
-        this.topic = Topic.ROMAN;
-        this.year = year;
-    }
-
-    public Book(String title, int[] pageCounts, double height, Topic topic, Year year) {
+    public Book(String title, int[] pageCounts, double height, Book.Topic topic,
+                List<String> authors, Year year) {
+        super();
         this.title = title;
         this.pageCounts = pageCounts;
         this.height = height;
         this.topic = topic;
+        this.authors = authors;
         this.year = year;
     }
 
-    public Book(String title, String autor, int[] pageCounts, double height, Topic topic, Year year) {
-        this.title = title;
-        this.autor.add(autor);
-        this.pageCounts = pageCounts;
-        this.height = height;
-        this.topic = topic;
-        this.year = year;
-    }
-
-    public Topic getTopic() {
-
-        return topic;
-    }
-
-    public void setTopic(Topic topic) {
-        this.topic = topic;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public int[] getPageCounts() {
-        return pageCounts;
-    }
-
-    public void setPageCounts(int[] pageCounts) {
-        this.pageCounts = pageCounts;
-    }
-
-    public List<String> getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor.add(autor);
+    public List<String> getAuthors() {
+        return authors;
     }
 
     public Year getYear() {
         return year;
     }
 
-    public void setYear(Year year) {
-        this.year = year;
+    public Book.Topic getTopic() {
+        return topic;
     }
 
-    public static List<Book> getLibrary() {
-        return library;
+    public String getTitle() {
+        return title;
     }
 
-    public static void setLibrary(List<Book> library) {
-        Book.library = library;
+    public int[] getPageCounts() {
+        return pageCounts;
     }
-    public static enum Topic {
-        FANTASTIC,
-        ROMAN,
-        COMEDIA,
-        HORROR;
+
+    public double getHeight() {
+        return height;
     }
+
 }

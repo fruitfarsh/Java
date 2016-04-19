@@ -16,11 +16,13 @@ public class Main {
         Lambda.example00();
         Lambda.example01();
         Lambda.example02();
-        Lambda.example03();
+        //Lambda.example03();
         Lambda.example04();
         Lambda.example05();
         FunctionExample.example01();
         FunctionExample.example02();
         StreamsExamples.example01();
+        StreamsExamples.example02();
+        //StreamsExamples.example03();
     }
 }

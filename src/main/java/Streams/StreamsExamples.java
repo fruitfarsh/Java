@@ -2,6 +2,7 @@ package Streams;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -26,16 +27,32 @@ public class StreamsExamples {
         List<Book> library = Book.createLibrary();
         Stream<Book> filteredStream = library.stream().filter(b->b.getTopic() == Book.Topic.ROMAN);
 
-        Stream<String> map = library.stream().map(b->b.getTitle());
+        //Stream<String> map = library.stream().map(b->b.getTitle());
 
-        library.stream().sorted(Comparator.comparing(Book::getTitle));
+        //library.stream().sorted(Comparator.comparing(Book::getTitle));
     }
 
-    public static void examples03(){
+    public static void example03(){
         Book.library.stream()
                 .sorted(Comparator.comparing(Book::getTitle))
                 .flatMap(book -> book.getAutor().stream())
                 .distinct();
+
+        Book.library.stream().sorted(Comparator.comparing(Book::getTitle))
+                .flatMap(book -> book.getAutor().stream()).distinct();
+
+        Book.library.stream().sorted(Comparator.comparing(Book::getTitle))
+                .limit(3);
+
+        Book.library.stream().sorted(Comparator.comparing(Book::getTitle))
+                .skip(3);
+
+        List<String> list = Book.library.stream().map(Book::getTitle).collect(Collectors.toList());
+        System.out.println(list);
+        Stream<String> streamOfTitles = Book.library.stream().map(book -> {
+            System.out.println(book);
+            return book.getTitle();
+        }); // transform
     }
 
 }
