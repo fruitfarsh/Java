@@ -20,7 +20,6 @@ public class Main {
         Lambda.example04();
         Lambda.example05();
         FunctionExample.example01();
-<<<<<<< HEAD
         FunctionExample.example02();
         StreamsExamples.example01();
         StreamsExamples.example02();
@@ -28,9 +27,7 @@ public class Main {
         System.out.println("Hello it commit 01");
         System.out.println("");       
         
-=======
         
         System.out.println("hello test02");
->>>>>>> refs/remotes/origin/TEST-02
     }
 }
