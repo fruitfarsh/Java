@@ -19,5 +19,7 @@ public class Main {
         Lambda.example04();
         Lambda.example05();
         FunctionExample.example01();
+        
+        System.out.println("hello test02");
     }
 }
