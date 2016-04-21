@@ -24,5 +24,8 @@ public class Main {
         StreamsExamples.example01();
         StreamsExamples.example02();
         //StreamsExamples.example03();
+        
+        System.out.println("Hello it commit");
+        
     }
 }
