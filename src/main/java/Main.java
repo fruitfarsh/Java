@@ -14,6 +14,7 @@ public class Main {
         System.out.println("Hello java 8");
 System.out.println("It test-03");
 System.out.println("It test-03 2");
+System.out.println("It last commit and push 03");
         Lambda.example00();
         Lambda.example01();
         Lambda.example02();
