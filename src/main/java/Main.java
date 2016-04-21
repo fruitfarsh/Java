@@ -23,9 +23,9 @@ public class Main {
         FunctionExample.example02();
         StreamsExamples.example01();
         StreamsExamples.example02();
-        //StreamsExamples.example03();
-        
-        System.out.println("Hello it commit");
+        //StreamsExamples.example03();        
+        System.out.println("Hello it commit 01");
+        System.out.println("");
         
     }
 }
