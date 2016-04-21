@@ -25,7 +25,7 @@ public class Main {
         StreamsExamples.example02();
         //StreamsExamples.example03();        
         System.out.println("Hello it commit 01");
-        System.out.println("");
+        System.out.println("");       
         
     }
 }
